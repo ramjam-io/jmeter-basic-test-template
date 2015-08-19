@@ -93,8 +93,28 @@
               <stringProp name="Header.name">User-Agent</stringProp>
               <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36</stringProp>
             </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-Testing-Responsible-Person</stringProp>
+              <stringProp name="Header.value">joes@foo.bar</stringProp>
+            </elementProp>
           </collectionProp>
         </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${TEST_HOSTNAME}</stringProp>
+          <stringProp name="HTTPSampler.port">${TEST_PORT}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">${TEST_HTTP_REQUEST_TIMEOUT}</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">${TEST_HTTP_RESPONSE_TIMEOUT}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${TEST_API_PROTOCOL}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+          <stringProp name="TestPlan.comments">Default Settings For All HTTP Requests - May be overridden by applying settings on a request basis.</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
         <hashTree/>
         <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Login Users Only Once" enabled="true">
           <stringProp name="TestPlan.comments">Use an inly once controller to maybe log in a user to the web application before you run the tests. If a session cookie is used, subsequent requests will send the cookie, otherwise, assign something from the response as a var and user throughout the test.</stringProp>
@@ -123,7 +143,7 @@
             <stringProp name="HTTPSampler.port">${TEST_PORT}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout">${TEST_HTTP_REQUEST_TIMEOUT}</stringProp>
             <stringProp name="HTTPSampler.response_timeout">${TEST_HTTP_RESPONSE_TIMEOUT}</stringProp>
-            <stringProp name="HTTPSampler.protocol"> ${TEST_API_PROTOCOL}</stringProp>
+            <stringProp name="HTTPSampler.protocol"> ${${TEST_API_PROTOCOL}}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">${TEST_APP_PATH}/login</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -147,11 +167,11 @@
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${TEST_HOSTNAME}</stringProp>
-            <stringProp name="HTTPSampler.port">${TEST_PORT}</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout">${TEST_HTTP_REQUEST_TIMEOUT}</stringProp>
-            <stringProp name="HTTPSampler.response_timeout">${TEST_HTTP_RESPONSE_TIMEOUT}</stringProp>
-            <stringProp name="HTTPSampler.protocol"> ${TEST_API_PROTOCOL}</stringProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">${TEST_APP_PATH}/my-endpoint-1</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
